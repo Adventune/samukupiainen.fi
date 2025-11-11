@@ -1,0 +1,29 @@
+---
+// TODO recommender, to be shown or not to be shown
+interface Recommender {
+    name: string;
+    company?: string;
+    title?: string;
+    email?: string;
+}
+
+interface Props {
+    timespan: string;
+    title: string;
+    firm?: string;
+    recommender?: Recommender;
+    skills: string[];
+}
+const { title, firm, timespan, skills } = Astro.props;
+---
+
+<div
+    class="md:p-16 p-6 rounded-md bg-[#1b1d1e] drop-shadow flex flex-col gap-1 max-w-[min(48rem,90%)]"
+>
+    <h2>{title}</h2>
+    <p class="text-light-text">
+        {(firm ? "@ " + firm + ", " : "") + timespan}
+    </p>
+    <p><slot /></p>
+    <p class="text-light-text">{skills.join(" · ")}</p>
+</div>

@@ -2,48 +2,246 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import WorkExperience from '../components/WorkExperience.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Hand } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import me from '../assets/me.jpg';
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang='en'>
+    <head>
+        <script>
+            window.onmousemove = (ev) => {
+                const mouseposX = ev.clientX / window.innerWidth,
+                    mouseposY = ev.clientY / window.innerHeight;
+
+                const headerEl = document.getElementById('page-top-bg');
+
+                if (headerEl) {
+                    headerEl.style.background = `radial-gradient(rgba(255, 255, 255, 0.03) 8%, transparent 8%) ${mouseposX}% ${mouseposY}%`;
+                    headerEl.style.backgroundSize = '7vmin 7vmin';
+                }
+            };
+        </script>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <Header />
+    <body>
+        <main class='mb-24'>
+            <div id='page-header' class='page-top'>
+                <div class='page-top-content'>
+                    <h1 class='flex flex-row'>
+                        Hey! &nbsp; <Hand class='rotate-30' />
+                    </h1>
+                    <p class='max-w-md text-xl'>
+                        I am Samu, a Full-stack Developer and Web Designer drawn to the nature. I
+                        have over seven years of experience in developing a wide range of solutions.
+                        I study information technology at the University of Oulu.
+                    </p>
+                </div>
+                <div class='page-top-bottom'></div>
+                <div class='page-top-content-bg' id='page-top-bg'></div>
+            </div>
+            <div
+                id='about'
+                class='relative isolate justify-evenly items-center p-16 gap-8 flex space-around flex-wrap'
+            >
+                <div class='about-background'></div>
+                <div id='about-text' class='flex flex-col my-16 gap-4'>
+                    <h2 class='text-xl text-primary-light max-w-md'>
+                        I am a Full-Stack developer and software architect based in Finland. I aim
+                        for perfomant applications with beautiful UI and great UX.
+                    </h2>
+                    <p class='text-light-text max-w-md'>
+                        I have been developing a wide range of software solutions the past 7+ years.
+                        I first got interested in robotics in elementary school when I was
+                        introduced to Lego EV3. From there I have progressed to Arduino. I have
+                        participated with success in Innokas-networks programming & robotics
+                        competition.
+                    </p>
+                    <p class='text-light-text max-w-md'>
+                        In the recent years I have moved on to web development and design. I started
+                        my own company and later formed a company with couple of my friends. While
+                        developing our company products I have taken a deeper dive into software
+                        architecturing and developed my Full-Stack skills while exploring new
+                        technologies and techniques.
+                    </p>
+                    <p class='text-light-text max-w-md'>
+                        As a hobby I enjoy photography and camping. I love walking in the nature and
+                        snapping pictures. Occasionally I also do street photography and portraits.
+                    </p>
+                </div>
+                <div class='me-image isolate w-full lg:w-1/2 relative aspect-3/4'>
+                    <Image src={me} alt='Image of me' class='object-cover h-full w-full' />
+                </div>
+            </div>
+            {
+                /*
+            <div id="work" class="text-center text-primary-light py-12">
+                <h2>My Work</h2>
+                <div class="flex gap-4 flex-wrap"></div>
+                <!--TODO -->
+            </div>
+            */
+            }
+            <div class='w-full flex flex-col items-center mt-16' id='work'>
+                <h2>Working experience</h2>
+                <h3>Professional</h3>
+                <div class='flex flex-col gap-8 my-8 items-center'>
+                    <WorkExperience
+                        firm='Vitec Raisoft Oy'
+                        title='Developer'
+                        timespan='May 2024 - August 2025'
+                        skills={[
+                            'JS',
+                            'PHP',
+                            'GoLang',
+                            'Delphi',
+                            'Git',
+                            'Docker',
+                            'WSL',
+                            'MSSQL',
+                            'Jenkins',
+                            'Windows',
+                            'Ubuntu',
+                        ]}
+                    >
+                        I worked as a developer at Vitec Raisoft Oy. I worked as a part of a scrum
+                        team developing a SaaS-application. On top of the SaaS-maintenance I worked
+                        on authentication, developer tooling and performance optimizations.
+                    </WorkExperience>
+                    <WorkExperience
+                        firm='BinopOy'
+                        title='Full stack web developer and the chairman of the board'
+                        timespan='March 2022 - Present'
+                        skills={[
+                            'TS',
+                            'GoLang',
+                            'Docker',
+                            'Proxmox',
+                            'PSQL',
+                            'Grafana',
+                            'Git',
+                            'GitHub',
+                            'GH Actions',
+                            'Terraform',
+                            'Linux systems',
+                        ]}
+                    >
+                        I am the lead developer and the chairman of the board at BinopOy. I
+                        architect, design and execute the production of software projects ranging
+                        from simple single page websites to large software packages.
+                    </WorkExperience>
+                </div>
+                <h3>Voluntary</h3>
+
+                <div class='flex flex-col gap-8 my-8 items-center'>
+                    <WorkExperience
+                        firm='Suomen Partiolaiset – Uudenmaan Partiolaiset / Kaiku2026 Camp'
+                        title='Website Team Leader'
+                        timespan='2025–2026'
+                        skills={[
+                            'TS',
+                            'PayloadCMS',
+                            'MongoDB',
+                            'Dokploy',
+                            'Docker',
+                            'Git',
+                            'GitHub',
+                            'Linux (Arch, Ubuntu)',
+                        ]}
+                    >
+                        I am serving as the Website Team Leader for the Kaiku2026 camp organized by
+                        the Uusimaa district of the Guides and Scouts of Finland. The role covered
+                        website design and implementation, infrastructure management, and
+                        recruiting, onboarding, and guiding the supporting web team.
+                    </WorkExperience>
+
+                    <WorkExperience
+                        firm='Assembly'
+                        title='Team Lead – Assembly App'
+                        timespan='2025'
+                        skills={['TS', 'React Native', 'Expo (EAS)', 'Git', 'Linux (Arch)']}
+                    >
+                        I led the volunteer development project for the official mobile application
+                        of the Assembly computer festival. I directed the development process,
+                        performed code reviews, and managed the release for both iOS and Android
+                        platforms.
+                    </WorkExperience>
+                </div>
+                {
+                    /*
+                <div
+                    class="flex flex-col gap-8 w-full mt-8 items-center text-primary-light"
+                >
+                    <h1>Awards / Winnings</h1>
+                    <!--TODO -->
+                </div>
+                */
+                }
+            </div>
+        </main>
+    </body><Footer />
+
+    <style>
+        @reference "../styles/global.css";
+        .page-top {
+            background-size: 7vmin 7vmin;
+            @apply h-screen text-primary-light flex items-center relative;
+        }
+
+        .page-top-content {
+            @apply flex flex-col gap-4 mx-[15%] text-2xl z-10;
+        }
+
+        .page-top-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(25, 27, 28, 255)) 100% 100%;
+            @apply w-full h-1/2;
+        }
+        .page-top-content-bg {
+            background: radial-gradient(rgba(255, 255, 255, 0.03) 8%, transparent 8%) 0% 0%;
+            background-size: 7vmin 7vmin;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            @apply w-full h-full;
+        }
+
+        .dotted-bg {
+            background: radial-gradient(rgba(255, 255, 255, 0.03) 8%, transparent 8%) 0% 0%;
+            background-size: 7vmin 7vmin;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            @apply w-screen h-screen;
+        }
+
+        .me-image {
+            @apply max-w-lg;
+        }
+
+        .me-image img {
+            @apply rounded drop-shadow-2xl;
+        }
+
+        .about-background {
+            position: absolute;
+            height: 75%;
+            width: 90%;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            transform: translateY(-50%) translateX(-50%);
+            background-color: var(--color-secondary-dark);
+            @apply rounded-2xl drop-shadow-2xl;
+        }
+    </style>
 </html>
