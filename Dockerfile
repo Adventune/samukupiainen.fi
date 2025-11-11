@@ -17,6 +17,7 @@ RUN pnpm install
 FROM build-deps AS build
 RUN corepack enable pnpm
 COPY . .
+RUN pnpm astro telemetry disable
 RUN pnpm build
 
 FROM base AS runtime
