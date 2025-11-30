@@ -1,21 +1,29 @@
 // @ts-check
 
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
-import alpinejs from "@astrojs/alpinejs";
+import alpinejs from '@astrojs/alpinejs';
 
-import node from "@astrojs/node";
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://samukupiainen.fi",
-  integrations: [mdx(), sitemap(), alpinejs()],
-  vite: { plugins: [tailwindcss()] },
+    site: 'https://samukupiainen.fi',
+    integrations: [mdx(), sitemap(), alpinejs()],
+    vite: {
+        plugins: [tailwindcss()],
+        server: {
+            watch: {
+                usePolling: true,
+                interval: 100, // Check for changes every 100ms
+            },
+        },
+    },
 
-  adapter: node({
-    mode: "standalone",
-  }),
+    adapter: node({
+        mode: 'standalone',
+    }),
 });

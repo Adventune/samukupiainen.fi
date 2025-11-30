@@ -7,9 +7,9 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection('blog'))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .filter((post) => (post.data.published !== undefined ? post.data.published : true));
 ---
 
 <!doctype html>
@@ -28,7 +28,7 @@ const posts = (await getCollection('blog')).sort(
                             <li>
                                 <a
                                     href={`/blog/${post.id}/`}
-                                    class='h-min w-fit flex flex-col gap-2 no-underline bg-secondary-dark rounded-lg overflow-hidden drop-shadow-lg'
+                                    class='h-full w-fit flex flex-col gap-2 no-underline bg-secondary-dark rounded-lg overflow-hidden drop-shadow-lg'
                                 >
                                     {post.data.heroImage && (
                                         <div class='full h-40 object-cover flex justify-center items-center overflow-hidden'>
@@ -46,7 +46,7 @@ const posts = (await getCollection('blog')).sort(
                                         <p class='text-light-text'>
                                             <FormattedDate date={post.data.pubDate} />
                                         </p>
-                                        <p class='text-light-text md:w-3/4'>
+                                        <p class='text-light-text md:w-3/4 line-clamp-3'>
                                             {post.data.description}
                                         </p>
                                     </div>
