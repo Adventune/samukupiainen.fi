@@ -5,7 +5,7 @@ description:
     osa-alueilla. Ilmiö on osoittautunut erityisen ongelmalliseksi etenkin avoimen lähdekoodin, eli
     OSS, -projektien ylläpitäjille. Tekoälyn teoreettiset hyödyt tietoturvatutkimuksessa eivät
     realisoidu OSS-ylläpitäjille, vaan tekoälyllä tuotetut tulokset kuormittavat kehittäjiä.'
-pubDate: 'Dec 1 2025'
+pubDate: 'Nov 30 2025'
 published: false
 heroImage: ./pile-of-trash.png
 ---
