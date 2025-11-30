@@ -1,5 +1,5 @@
 ---
-title: Tekoälyllä tuotettujen tietoturvatutkimusten vaikutus avoimen lähdekoodin projekteihin.
+title: Tekoälyllä tuotettujen tietoturvatutkimusten vaikutus avoimen lähdekoodin projekteihin
 description:
     'Tekoäly on saavuttanut jalansijaa tietoturvatutkimuksessa samaa tahtia kuin muillakin elämän
     osa-alueilla. Ilmiö on osoittautunut erityisen ongelmalliseksi etenkin avoimen lähdekoodin, eli
